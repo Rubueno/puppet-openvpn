@@ -69,7 +69,10 @@ describe 'openvpn::client', type: :define do
       }
 
       context 'setting the minimum parameters' do
-        let(:params) { { 'server' => 'test_server' } }
+        let(:params) { {
+          'server'      => 'test_server',
+          'remote_host' => 'foo.example.com',
+        } }
 
         it { is_expected.to contain_file('/etc/openvpn/test_server/download-configs/test_client/test_client.conf').with_content(%r{^client$}) }
         it { is_expected.to contain_file('/etc/openvpn/test_server/download-configs/test_client/test_client.conf').with_content(%r{^ca\s+keys/test_client/ca\.crt$}) }
