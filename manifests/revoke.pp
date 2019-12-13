@@ -17,7 +17,7 @@ define openvpn::revoke (
   String $server,
 ) {
 
-  Openvpn::Server[$server]
+  Openvpn::Server[ $server ]
   -> Openvpn::Revoke[$name]
 
   Openvpn::Client[$name]
